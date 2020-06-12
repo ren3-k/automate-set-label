@@ -5,6 +5,8 @@ ACCESS_TOKEN        = environ.get("ACCESS_TOKEN")
 GITHUB_REPOSITORY   = environ.get("GITHUB_REPOSITORY") 
 PULL_REQUEST_NUMBER = int(environ.get("PULL_REQUEST_NUMBER"))
 
+print("GITHUB_REPOSITORY = %s" %(GITHUB_REPOSITORY)) 
+
 g = Github(ACCESS_TOKEN)
 repo = g.get_repo(GITHUB_REPOSITORY)
 pr = repo.get_pull(PULL_REQUEST_NUMBER)
