@@ -1,15 +1,16 @@
 from os import environ
 from github import Github
 
-ACCESS_TOKEN        = environ.get("ACCESS_TOKEN")
-GITHUB_REPOSITORY   = environ.get("GITHUB_REPOSITORY") 
-PULL_REQUEST_NUMBER = int(environ.get("PULL_REQUEST_NUMBER"))
+ACCESS_TOKEN               = environ.get("ACCESS_TOKEN")
+TARGET_GITHUB_REPOSITORY   = environ.get("TARGET_GITHUB_REPOSITORY") 
+TARGET_PULL_REQUEST_NUMBER = int(environ.get("TARGET_PULL_REQUEST_NUMBER"))
 
-print("GITHUB_REPOSITORY = %s" %(GITHUB_REPOSITORY)) 
+print("TARGET_GITHUB_REPOSITORY = %s" %(TARGET_GITHUB_REPOSITORY)) 
+print("TARGET_PULL_REQUEST_NUMBER = %s" %(TARGET_PULL_REQUEST_NUMBER)) 
 
 g = Github(ACCESS_TOKEN)
-repo = g.get_repo(GITHUB_REPOSITORY)
-pr = repo.get_pull(PULL_REQUEST_NUMBER)
+repo = g.get_repo(TARGET_GITHUB_REPOSITORY)
+pr = repo.get_pull(TARGET_PULL_REQUEST_NUMBER)
 
 # ラベル名
 awaiting_review   = "レビュー待ち"
